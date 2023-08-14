@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-demo-1
+spec:
+  containers:
+  - name: demo-container
+    image: nginx
+    envFrom:
+    - configMapRef:
+       name: configmap-2
+
+#kubectl create configmap configmap-1 --from-literal=name=first-configmap
+#kubectl exec -it configmap-demo-1 -- printenv
